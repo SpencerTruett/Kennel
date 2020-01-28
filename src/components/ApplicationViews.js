@@ -37,6 +37,9 @@ export default (props) => {
                         <Route path="/animal/:animalId(\d+)" render={
                             props => <AnimalDetails {...props} />
                         } />
+                        <Route path="/animals/edit/:animalId(\d+)" render={
+                            props => <AnimalForm {...props} />
+                        } />
                     </CustomerProvider>
                 </LocationProvider>
             </AnimalProvider>
