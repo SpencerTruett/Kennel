@@ -9,28 +9,28 @@ export default props => {
     const { locations } = useContext(LocationContext)
 
     return (
-        <div className="employees">
-            <h1>Employees</h1>
+        <>
+        <h1>Employees</h1>
             <button onClick={() => props.history.push("/employees/create")}>
                 Add Employee
             </button>
-            <article className="employeeList">
-                {
-                    employees.map(employee => {
-                        // Find this employee's matching location object
-                        const foundedLocation = locations.find(
-                            (location) => {
-                                return location.id === employee.locationId
-                            }
-                        )
+        <div className="employees">
+            {
+                employees.map(employee => {
+                    // Find this employee's matching location object
+                    const foundedLocation = locations.find(
+                        (location) => {
+                            return location.id === employee.locationId
+                        }
+                    )
 
-                        // Pass the matching location to Employee component
-                        return <Employee key={employee.id}
-                                         location={foundedLocation}
-                                         employee={employee} />
-                    })
-                }
-            </article>
+                    // Pass the matching location to Employee component
+                    return <Employee key={employee.id}
+                                        location={foundedLocation}
+                                        employee={employee} />
+                })
+            }
         </div>
+        </>
     )
 }

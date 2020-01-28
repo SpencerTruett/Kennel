@@ -3,14 +3,24 @@ import { AnimalContext } from "./AnimalProvider"
 import Animal from "./Animal"
 import "./Animal.css"
 
-export default () => {
+export default (props) => {
     const { animals } = useContext(AnimalContext)
 
     return (
-        <div className="animals">
-        {
-            animals.map(ani => <Animal key={ani.id} animal={ani} />)
-        }
-        </div>
+        <>
+            <h1>Animals</h1>
+
+            <button onClick={() => props.history.push("/animals/create")}>
+                Make Reservation
+            </button>
+            <div className="animals">
+
+                {
+                    animals.map(animal => {
+                        return <Animal key={animal.id} animal={animal} />
+                    })
+                }
+            </div>
+        </>
     )
 }
