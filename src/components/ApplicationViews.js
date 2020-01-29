@@ -27,7 +27,7 @@ export default (props) => {
             <AnimalProvider>
                 {/* Render the animal list when http://localhost:3000/animals */}
                 <LocationProvider>
-                <CustomerProvider>
+                    <CustomerProvider>
                         <Route exact path="/animals" render={
                             props => <AnimalList {...props} />
                         } />

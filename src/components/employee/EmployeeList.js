@@ -18,7 +18,7 @@ export default props => {
             {
                 employees.map(employee => {
                     // Find this employee's matching location object
-                    const foundedLocation = locations.find(
+                    const foundLocation = locations.find(
                         (location) => {
                             return location.id === employee.locationId
                         }
@@ -26,7 +26,7 @@ export default props => {
 
                     // Pass the matching location to Employee component
                     return <Employee key={employee.id}
-                                        location={foundedLocation}
+                                        location={foundLocation}
                                         employee={employee} />
                 })
             }
